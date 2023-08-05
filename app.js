@@ -10,10 +10,11 @@ import UserController from "./users/users-controller.js";
 const app = express();
 
 app.use(
-  cors({
-    credentials: true,
-    // origin: process.env.FRONTEND_URL
-  })
+  cors()
+  // {
+  // credentials: true,
+  // origin: process.env.FRONTEND_URL
+  // }
 );
 const sessionOptions = {
   secret: "any string",
