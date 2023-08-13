@@ -8,8 +8,8 @@ const AuthController = (app) => {
       return;
     }
     const newUser = await usersDao.createUser(req.body);
-    req.session["currentUser"] = newUser;
-    console.log('set session to newUser ', newUser)
+    req.session["currentUser"] = JSON.parse(JSON.stringify(newUser));
+    console.log('set session to newUser ', req.session["currentUser"])
     res.json(newUser);
   };
 
