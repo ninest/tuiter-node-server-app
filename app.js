@@ -9,8 +9,8 @@ import UserController from "./users/users-controller.js";
 import mongoose from "mongoose";
 
 const app = express();
-mongoose.connect("mongodb://127.0.0.1:27017/tuiter");
-
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/tuiter";
+mongoose.connect(CONNECTION_STRING);
 
 console.log("Allowed origin: ", process.env.FRONTEND_URL);
 app.use(
