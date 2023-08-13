@@ -33,6 +33,10 @@ if (process.env.NODE_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 app.use(express.json());
+app.use(function (req, res, next) {
+  console.log(`\n[SESSION] ${JSON.stringify(req.session['currentUser'])}\n`)
+  return next()
+})
 
 AuthController(app);
 TuitsController(app);
